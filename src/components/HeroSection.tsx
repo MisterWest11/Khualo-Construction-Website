@@ -1,4 +1,5 @@
 import React from 'react';
+import foreground_image from "../assets/images/foreground_image.jpg";
 import { motion } from 'framer-motion';
 export function HeroSection() {
   return (
@@ -7,8 +8,7 @@ export function HeroSection() {
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-          'url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920")'
+          backgroundImage: `url(${foreground_image})`
         }}>
 
         <div className="absolute inset-0 bg-[#1C1C1C]/70 mix-blend-multiply"></div>
@@ -34,7 +34,7 @@ export function HeroSection() {
               Building The Future
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
-              Professional Construction Services You Can Trust
+              Professional Construction, Hiring & Plant Hire Services You Can Trust
             </h1>
           </motion.div>
 
@@ -54,8 +54,8 @@ export function HeroSection() {
             }}
             className="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl font-light">
 
-            We deliver high-quality building, renovations, and infrastructure
-            work across South Africa.
+            We deliver high-quality construction, staffing, and plant hire
+            solutions across South Africa.
           </motion.p>
 
           <motion.div

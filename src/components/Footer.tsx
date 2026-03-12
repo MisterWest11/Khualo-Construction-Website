@@ -12,9 +12,8 @@ export function Footer() {
               </span>
             </a>
             <p className="text-gray-400 mb-6 leading-relaxed max-w-sm">
-              Delivering high-quality building, renovations, and infrastructure
-              work across South Africa with a commitment to excellence and
-              reliability.
+              Providing construction, hiring, and plant hire solutions across
+              South Africa with a commitment to excellence and reliability.
             </p>
           </div>
 
@@ -104,7 +103,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Khualo Construction. All rights
+            © {new Date().getFullYear()} Khualo Multi Trading Services. All rights
             reserved.
           </p>
           <div className="flex items-center gap-6">

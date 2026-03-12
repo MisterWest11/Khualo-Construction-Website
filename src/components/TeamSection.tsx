@@ -1,4 +1,5 @@
 import React from 'react';
+import Client_Picture from "../assets/images/Client_Picture.jpg";
 import { motion } from 'framer-motion';
 export function TeamSection() {
   return (
@@ -31,7 +32,7 @@ export function TeamSection() {
           <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-[#E5E5E5]">
             <div className="aspect-square overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400"
+                src={Client_Picture}
                 alt="Siwe Khualo"
                 className="w-full h-full object-cover object-top" />
 
@@ -44,8 +45,7 @@ export function TeamSection() {
                 Project Manager
               </p>
               <p className="text-[#555555] leading-relaxed">
-                "Leading our construction projects with dedication and attention
-                to detail."
+                "Leading our projects with dedication and attention to detail."
               </p>
             </div>
           </div>

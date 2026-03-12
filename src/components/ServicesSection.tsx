@@ -1,47 +1,58 @@
 import React, { Children } from 'react';
+import tlb_con from "../assets/images/tlb_con.jpg";
+import fencing from "../assets/images/fencing.jpg";
+import tiling_1 from "../assets/images/tiling_1.jpg";
+import house from "../assets/images/house.jpg";
+import site_prep from "../assets/images/site_prep.jpg";
+import truck from "../assets/images/truck.jpg";
+import crew from "../assets/images/crew.jpg";
+import construction from "../assets/images/construction.jpg";
+import tent2 from "../assets/images/tent2.jpg";
 import { motion } from 'framer-motion';
 import { ArrowRight as ArrowRightIcon } from 'lucide-react';
 export function ServicesSection() {
   const services = [
   {
-    title: 'TLB & Construction',
+    title: 'Construction & Site Works',
     description:
-    'Heavy machinery operation and core construction services for robust foundations.',
+      'From foundations to finishing, we deliver robust construction and civil works.',
     image:
-    'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600'
+      tlb_con
+  },
+  {
+    title: 'Plant & Equipment Hire',
+    description:
+      'Hire quality machinery and equipment for earthmoving, lifting, and site preparation.',
+    image:
+      construction
+  },
+  {
+    title: 'Skilled Labour Hiring',
+    description:
+      'Flexible staffing solutions with certified operators, tradespeople, and support crews.',
+    image:
+      crew
   },
   {
     title: 'Renovations & Fencing',
     description:
-    'Complete property transformations and secure, durable fencing solutions.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600'
-  },
-  {
-    title: 'Tiling',
-    description:
-    'Precision tiling for floors and walls using high-quality materials.',
+      'Complete property transformations and secure, durable fencing solutions.',
     image:
-    'https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?w=600'
+      fencing
   },
   {
-    title: 'Room & Roof Painting',
+    title: 'Stretch Tent & Event Hire',
     description:
-    'Professional interior and exterior painting, including specialized roof coatings.',
+      'Hire stylish stretch tents, tables, chairs, and event equipment for memorable occasions.',
     image:
-    'https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?w=600'
+      tent2
   },
   {
-    title: 'Site Preparation & Building',
+    title: 'Interior Finishes & Painting',
     description:
-    'Thorough site clearing, leveling, and complete building erection.',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600'
-  },
-  {
-    title: 'Paving & Rubble Removal',
-    description:
-    'Expert paving installations and efficient post-construction site cleanup.',
+      'Precision finishing services including tiling, painting, and detail work.',
     image:
-    'https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=600'
+      tiling_1
   }];
 
   const containerVariants = {
@@ -80,8 +91,8 @@ export function ServicesSection() {
             Our Services
           </h2>
           <p className="text-lg text-[#555555]">
-            Comprehensive construction solutions tailored to meet the demands of
-            modern infrastructure and residential needs.
+            Comprehensive construction, hiring, and plant hire solutions tailored
+            to meet the demands of modern projects.
           </p>
         </div>
 

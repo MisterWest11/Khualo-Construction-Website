@@ -1,12 +1,13 @@
 import React from 'react';
+import truck from "../assets/images/truck.jpg";
 import { motion } from 'framer-motion';
 import { CheckCircle as CheckCircleIcon } from 'lucide-react';
 export function AboutSection() {
   const features = [
   'Certified Construction Team',
-  'Quality Materials',
-  'On-time Delivery',
-  'Professional Workmanship'];
+  'Reliable Plant & Equipment Hire',
+  'Skilled Labour & Hiring Support',
+  'On-time Delivery'];
 
   return (
     <section id="about" className="py-24 bg-white overflow-hidden">
@@ -34,8 +35,8 @@ export function AboutSection() {
 
             <div className="aspect-[4/5] md:aspect-square lg:aspect-[4/5] relative rounded-lg overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"
-                alt="Khualo Construction Team"
+                src={truck}
+                alt="Khualo Multi Trading Services Team"
                 className="object-cover w-full h-full" />
 
               <div className="absolute inset-0 bg-[#1C1C1C]/10"></div>
@@ -67,13 +68,13 @@ export function AboutSection() {
               About Us
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#1C1C1C] mb-6 leading-tight">
-              Welcome to Khualo Construction
+              Welcome to Khualo Multi Trading Services
             </h2>
             <p className="text-lg text-[#555555] mb-8 leading-relaxed">
-              We specialize in high-quality construction, maintenance, roofing,
-              fencing, and paving. Our mission is to deliver reliable
-              workmanship and professional service on every project, ensuring
-              your vision becomes a reality built to last.
+              We offer construction, staffing, and plant hire solutions with a
+              focus on quality workmanship and reliable project delivery. Our
+              mission is to bring your project to life with experienced teams and
+              the right equipment.
             </p>
 
             <ul className="space-y-4 mb-10">

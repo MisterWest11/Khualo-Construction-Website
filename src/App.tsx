@@ -1,29 +1,29 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
-import { HeroSection } from './components/HeroSection';
-import { AboutSection } from './components/AboutSection';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { ServicesSection } from './components/ServicesSection';
-import { ProjectsGallery } from './components/ProjectsGallery';
-import { TeamSection } from './components/TeamSection';
-import { CTASection } from './components/CTASection';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { HomePage } from './pages/HomePage';
+import { ServicesPage } from './pages/ServicesPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
+
 export function App() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <WhyChooseUs />
-        <ServicesSection />
-        <ProjectsGallery />
-        <TeamSection />
-        <CTASection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>);
 
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          {/* Fallback: show home on unknown routes */}
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+      </main>
+
+      <Footer />
+    </div>
+  );
 }

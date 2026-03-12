@@ -23,7 +23,7 @@ export function CTASection() {
 
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1C1C1C] mb-4">
-              Need Professional Construction Services?
+              Need Professional Construction, Hiring, or Plant Hire Services?
             </h2>
             <p className="text-xl text-[#1C1C1C]/80 font-medium">
               Contact us today for a free quote on your next project.

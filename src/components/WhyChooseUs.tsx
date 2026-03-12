@@ -23,7 +23,7 @@ export function WhyChooseUs() {
     icon: <UsersIcon size={40} className="text-[#F4B400]" />,
     title: 'Experienced Team',
     description:
-    'Our skilled professionals bring years of construction expertise.'
+    'Our skilled professionals bring years of project expertise.'
   },
   {
     icon: <AwardIcon size={40} className="text-[#F4B400]" />,

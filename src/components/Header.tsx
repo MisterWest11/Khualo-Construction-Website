@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu as MenuIcon, X as XIcon } from 'lucide-react';
+import logo from '../assets/images/logo.png';
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,30 +13,23 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const navLinks = [
-  {
-    name: 'Home',
-    href: '#'
-  },
-  {
-    name: 'Services',
-    href: '#services'
-  },
-  {
-    name: 'Projects',
-    href: '#projects'
-  },
-  {
-    name: 'About',
-    href: '#about'
-  },
-  {
-    name: 'Team',
-    href: '#team'
-  },
-  {
-    name: 'Contact',
-    href: '#contact'
-  }];
+    {
+      name: 'Home',
+      href: '/'
+    },
+    {
+      name: 'Services',
+      href: '/services'
+    },
+    {
+      name: 'About',
+      href: '/about'
+    },
+    {
+      name: 'Contact',
+      href: '/contact'
+    }
+  ];
 
   return (
     <header
@@ -43,35 +38,42 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-1 z-50">
-            <span className="text-2xl font-extrabold text-[#1C1C1C] tracking-tighter">
-              KHUALO<span className="text-[#F4B400]">.</span>
-            </span>
-            <span className="text-sm font-semibold text-[#555555] tracking-widest uppercase hidden sm:block mt-1">
-              Construction
-            </span>
-          </a>
+          <Link to="/" className="flex items-center gap-3 z-50">
+            <img
+              src={logo}
+              alt="Khualo Multi Trading Services logo"
+              className="h-12 w-auto sm:h-14 md:h-16"
+            />
+            <div>
+              <span className="text-2xl font-extrabold text-[#1C1C1C] tracking-tighter">
+                KHUALO<span className="text-[#F4B400]">.</span>
+              </span>
+              <span className="text-sm font-semibold text-[#555555] tracking-widest uppercase hidden sm:inline-block">
+                Multi Trading Services
+              </span>
+            </div>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             <ul className="flex items-center gap-8">
               {navLinks.map((link) =>
               <li key={link.name}>
-                  <a
-                  href={link.href}
-                  className="text-[#1C1C1C] font-medium hover:text-[#F4B400] transition-colors text-sm uppercase tracking-wide">
+                  <Link
+                    to={link.href}
+                    className="text-[#1C1C1C] font-medium hover:text-[#F4B400] transition-colors text-sm uppercase tracking-wide">
 
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               )}
             </ul>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="bg-[#F4B400] text-[#1C1C1C] px-6 py-2.5 rounded font-bold hover:bg-[#d9a000] transition-colors">
 
               Request a Quote
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -92,23 +94,23 @@ export function Header() {
         <ul className="flex flex-col items-center gap-8">
           {navLinks.map((link) =>
           <li key={link.name}>
-              <a
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-2xl font-bold text-[#1C1C1C] hover:text-[#F4B400] transition-colors">
+              <Link
+                to={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-2xl font-bold text-[#1C1C1C] hover:text-[#F4B400] transition-colors">
 
                 {link.name}
-              </a>
+              </Link>
             </li>
           )}
           <li>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               onClick={() => setIsMobileMenuOpen(false)}
               className="inline-block mt-4 bg-[#F4B400] text-[#1C1C1C] px-8 py-4 rounded font-bold text-lg">
 
               Request a Quote
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

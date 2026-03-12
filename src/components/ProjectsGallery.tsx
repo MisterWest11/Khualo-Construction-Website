@@ -1,41 +1,70 @@
 import React from 'react';
+import pave1 from "../assets/images/pave1.jpg";
+import sitePrep from "../assets/images/sitePrep.jpg";
+import houseBuilding from "../assets/images/houseBuilding.jpg";
+import home_building from "../assets/images/home_building.jpg";
+import toilets from "../assets/images/toilets.jpg";
+import tent1 from "../assets/images/tent1.jpg";
+import trailer from "../assets/images/trailer.jpg";
+import tent3 from "../assets/images/tent3.jpg";
+import fencing from "../assets/images/fencing.jpg";
+import mobiletoilets from "../assets/images/mobiletoilets.jpg";
 import { motion } from 'framer-motion';
 export function ProjectsGallery() {
   const projects = [
   {
-    title: 'Commercial Building',
+    title: 'Trailer Hire & Logistics',
     image:
-    'https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?w=600',
+    trailer,
     size: 'large'
   },
   {
     title: 'Residential Paving',
-    image:
-    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600',
+    image: pave1,
     size: 'small'
   },
   {
     title: 'Infrastructure Work',
-    image: 'https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?w=600',
+    image: toilets,
     size: 'medium'
   },
   {
     title: 'Modern Brickwork',
     image:
-    'https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=600',
+    home_building,
     size: 'medium'
   },
   {
     title: 'Site Preparation',
-    image:
-    'https://images.unsplash.com/photo-1590725121839-892b458a74fe?w=600',
+    image: sitePrep,
     size: 'small'
   },
   {
     title: 'Renovation Project',
     image:
-    'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600',
+    houseBuilding,
     size: 'large'
+  },
+ {
+    title: 'Chair & Table Hire',
+    image: tent1,
+    size: 'small'
+  },
+  {
+    title: 'Tent Hire Setup',
+    image: tent3,
+    size: 'small'
+  },
+  {
+    title: 'Mobile Toilet Hire',
+    image: mobiletoilets,
+    size: 'medium'
+  },
+  {
+    title: 'Fencing Installation',
+    image: fencing,
+    size: 'medium'
+
   }];
 
   return (
@@ -47,7 +76,7 @@ export function ProjectsGallery() {
               Our Recent Projects
             </h2>
             <p className="text-lg text-[#555555]">
-              Quality work delivered across our latest construction sites.
+              Quality work delivered across our latest projects.
             </p>
           </div>
           <a
@@ -93,7 +122,7 @@ export function ProjectsGallery() {
                 <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-[#1C1C1C]/90 to-transparent">
                   <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                     <span className="text-[#F4B400] font-bold text-sm tracking-wider uppercase mb-1 block">
-                      Construction
+                      Project
                     </span>
                     <h3 className="text-white text-2xl font-bold">
                       {project.title}

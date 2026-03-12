@@ -11,20 +11,82 @@ export function ContactSection() {
     email: '',
     phone: '',
     service: '',
-    message: ''
+    message: '',
+    honeypot: ''
   });
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<
+    | { type: 'success' | 'error'; message: string }
+    | null
+  >(null);
+
+  const web3FormsAccessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message. We will get back to you shortly.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+
+    if (!web3FormsAccessKey) {
+      setStatus({
+        type: 'error',
+        message:
+          'Missing Web3Forms access key. Please set VITE_WEB3FORMS_ACCESS_KEY in your environment variables.'
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus(null);
+
+    try {
+      const payload = {
+        access_key: web3FormsAccessKey,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.service
+          ? `Service request: ${formData.service}`
+          : 'New contact message',
+        message: formData.message,
+        honeypot: formData.honeypot // keeps spam bots from submitting
+      };
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || result.success === false) {
+        throw new Error(result.message || 'Failed to send message.');
+      }
+
+      setStatus({
+        type: 'success',
+        message: 'Thank you! Your message was sent successfully.'
+      });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: '',
+        honeypot: ''
+      });
+    } catch (error: any) {
+      console.error('Web3Forms error:', error);
+      setStatus({
+        type: 'error',
+        message:
+          error?.message ||
+          'Something went wrong. Please try again in a few minutes.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   const handleChange = (
   e: React.ChangeEvent<
@@ -68,8 +130,8 @@ export function ContactSection() {
               Contact Information
             </h3>
             <p className="text-[#555555] mb-10 text-lg">
-              Ready to start your next construction project? Reach out to us for
-              consultations, quotes, or general inquiries.
+              Ready to start your next project? Reach out for construction, hiring,
+              or plant hire support.
             </p>
 
             <div className="space-y-8">
@@ -135,6 +197,15 @@ export function ContactSection() {
               Send Us A Message
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot field (hidden) to help prevent automated spam submissions */}
+              <input
+                type="text"
+                name="honeypot"
+                value={formData.honeypot}
+                onChange={handleChange}
+                autoComplete="off"
+                className="hidden"
+              />
               <div>
                 <label
                   htmlFor="name"
@@ -150,7 +221,7 @@ export function ContactSection() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded border border-[#E5E5E5] focus:outline-none focus:ring-2 focus:ring-[#F4B400] focus:border-transparent transition-shadow bg-white"
-                  placeholder="John Doe" />
+                  placeholder="First & Last Name" />
 
               </div>
 
@@ -212,19 +283,14 @@ export function ContactSection() {
                   }}>
 
                   <option value="">Select a service...</option>
-                  <option value="tlb-construction">
-                    TLB &amp; Construction
+                  <option value="construction-services">
+                    Construction Services
                   </option>
-                  <option value="renovations-fencing">
-                    Renovations &amp; Fencing
+                  <option value="plant-hire-services">
+                    Plant Hire Services
                   </option>
-                  <option value="tiling">Tiling</option>
-                  <option value="painting">Room &amp; Roof Painting</option>
-                  <option value="site-preparation">
-                    Site Preparation &amp; Building
-                  </option>
-                  <option value="paving-rubble">
-                    Paving &amp; Rubble Removal
+                  <option value="hiring-services">
+                    Hiring Services
                   </option>
                   <option value="other">Other</option>
                 </select>
@@ -245,15 +311,32 @@ export function ContactSection() {
                   required
                   rows={5}
                   className="w-full px-4 py-3 rounded border border-[#E5E5E5] focus:outline-none focus:ring-2 focus:ring-[#F4B400] focus:border-transparent transition-shadow bg-white resize-none"
-                  placeholder="Tell us about your project...">
-                </textarea>
+                  placeholder="Tell us about your project..."
+                />
               </div>
+
+              {status ? (
+                <div
+                  className={`rounded p-4 text-sm font-medium ${
+                    status.type === 'success'
+                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                      : 'bg-rose-50 text-rose-700 border border-rose-200'
+                  }`}
+                >
+                  {status.message}
+                </div>
+              ) : null}
 
               <button
                 type="submit"
-                className="w-full bg-[#F4B400] text-[#1C1C1C] px-8 py-4 rounded font-bold hover:bg-[#d9a000] transition-colors text-lg">
-
-                Submit Message
+                disabled={isSubmitting}
+                className={`w-full px-8 py-4 rounded font-bold text-lg transition-colors ${
+                  isSubmitting
+                    ? 'bg-[#F4B400]/70 cursor-not-allowed'
+                    : 'bg-[#F4B400] hover:bg-[#d9a000]'
+                } text-[#1C1C1C]`}
+              >
+                {isSubmitting ? 'Sending…' : 'Submit Message'}
               </button>
             </form>
           </motion.div>
