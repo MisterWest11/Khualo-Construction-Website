@@ -72,9 +72,11 @@ export function AboutSection() {
             </h2>
             <p className="text-lg text-[#555555] mb-8 leading-relaxed">
               We offer construction, staffing, and plant hire solutions with a
-              focus on quality workmanship and reliable project delivery. Our
-              mission is to bring your project to life with experienced teams and
-              the right equipment.
+              focus on quality workmanship and reliable project delivery. We are a
+              CIDB accredited construction company with NHBRC registration, giving
+              you the confidence of compliant, professional delivery. Our mission
+              is to bring your project to life with experienced teams and the
+              right equipment.
             </p>
 
             <ul className="space-y-4 mb-10">
