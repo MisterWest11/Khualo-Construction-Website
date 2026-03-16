@@ -66,7 +66,7 @@ export function ContactSection() {
 
       setStatus({
         type: 'success',
-        message: 'Thank you! Your message was sent successfully.'
+        message: 'Thank you! Your message was sent successfully. We will be in touch soon.'
       });
       setFormData({
         name: '',
