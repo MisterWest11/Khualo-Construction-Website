@@ -93,7 +93,7 @@ export function Footer() {
                   href="mailto:SIWEKHUALO@gmail.com"
                   className="hover:text-[#F4B400] transition-colors">
 
-                  SIWEKHUALO@gmail.com
+                  Siviwekhwalo@gmail.com
                 </a>
               </li>
             </ul>
