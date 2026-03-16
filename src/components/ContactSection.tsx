@@ -47,8 +47,13 @@ export function ContactSection() {
           ? `Service request: ${formData.service}`
           : 'New contact message',
         message: formData.message,
-        honeypot: formData.honeypot // keeps spam bots from submitting
+        redirect: 'https://web3forms.com/success' // Add redirect URL
       };
+
+      // Only include honeypot if it's filled (indicating spam)
+      if (formData.honeypot) {
+        payload.honeypot = formData.honeypot;
+      }
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
