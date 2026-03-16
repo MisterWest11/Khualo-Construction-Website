@@ -39,7 +39,7 @@ export function TeamSection() {
             </div>
             <div className="p-8 text-center">
               <h3 className="text-2xl font-bold text-[#1C1C1C] mb-1">
-                Siwe Khualo
+                Siviwe Mgwarubana
               </h3>
               <p className="text-[#F4B400] font-bold uppercase tracking-wider text-sm mb-4">
                 Project Manager

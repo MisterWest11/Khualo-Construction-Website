@@ -169,7 +169,7 @@ export function ContactSection() {
                   <h4 className="text-xl font-bold text-[#1C1C1C] mb-1">
                     Email
                   </h4>
-                  <p className="text-[#555555] text-lg">SIWEKHUALO@gmail.com</p>
+                  <p className="text-[#555555] text-lg">Siviwekhwalo@gmail.com</p>
                 </div>
               </div>
             </div>
