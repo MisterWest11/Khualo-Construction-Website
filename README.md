@@ -32,7 +32,19 @@ Then open the URL shown in your terminal (usually `http://localhost:5173`).
   - `pages/` – Route pages (Home, About, Services, Contact)
   - `assets/` – Images and static assets
 - `public/` – Public files served as-is (favicon, robots.txt, sitemap.xml)
-- `index.html` – Base HTML template
+- `docs/` – Detailed documentation
+
+## 📖 Documentation
+
+For comprehensive documentation, see the [docs](./docs/) directory:
+
+- [Setup and Installation](./docs/setup.md)
+- [Project Structure](./docs/structure.md)
+- [Components](./docs/components.md)
+- [Pages](./docs/pages.md)
+- [Styling](./docs/styling.md)
+- [Deployment](./docs/deployment.md)
+- [Contributing](./docs/contributing.md)
 
 ## ✅ Customization
 
